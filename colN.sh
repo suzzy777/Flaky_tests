@@ -55,7 +55,7 @@ for f in $(cat PatchesNew2.csv); do
     
    
 
-    echo "$isvictimfailing"
+    echo "$isbfailing"
 done
 
 
