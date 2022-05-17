@@ -68,7 +68,7 @@ Run the following command to run the script and save it in a logfile:
 9.	It will also output a commit message in GitHub markdown format in the log file. User can copy and paste it in GitHub.
 10.	Lastly, the changes made by the patch is reversed at the end and the OD file goes back to the state before patching.
 
-##Output: 
+## Output: 
 
 The output of the script can be seen in the log file created, we can also output the before and after patch information (pytest pass or fail) for both in isolation and running after dependent test in a simpler manner in a csv file by running the `automate.sh` file. The script has to be in the same directory as the cloned projects. Run the following command: 
 `bash automate.sh |& tee <newcsvfilename>.csv`
