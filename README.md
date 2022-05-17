@@ -55,7 +55,17 @@ Run the following command to run the script and save it in a logfile:
 
 `bash latestfindOD.sh |& tee <logfilename>.log`
 
+# Examples: 
 
+Here is an example of when we run the script on `smalldataset.csv`: 
+- input csv file: 
+- output md5checksum added csv file: 
+- input patches folder:  
+- output log file of `findlatestODandPatch.sh`: 
+- output csv file of `automate.sh`
+- output folders: 
+- demo video: 
+- 
 ## Details of the Script:
 
 1.	First it takes input of the input csv file which contains information about order dependent flaky tests, their polluter, cleaner, patch and creates an md5checksum for each row – which will give each OD (Order Dependent) test, polluter, cleaner, patch group some unique md5hecksum value. It creates a new csv file with the added md5sha for all the tests.  
@@ -76,7 +86,8 @@ The output of the script can be seen in the log file created, we can also output
 `bash automate.sh |& tee <newcsvfilename>.csv`
 It will ask user to input file name, user has to give the previously created md5checksum added file name.
 The <newcsvfilename>.csv will have the before and after patch information.
+   
+ 
+
 
 [Google Sheet link]( https://docs.google.com/spreadsheets/d/1HwpPlm0sNNivqnh-S0sTxHW4u6hKiWlVLhzX-wpHHd4/edit#gid=1402605759 )
-    
-[Color coded anomalies] (https://docs.google.com/spreadsheets/d/1e4-CuzAMLf_iFaZbd6MU9N6YK_6J39qjloWVvRaklok/edit?usp=sharing )
