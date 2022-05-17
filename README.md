@@ -7,8 +7,8 @@ This project is to test if some previously detected python order dependent tests
 ## How to Use the Project:	
     
 ### Setup:
-
-The script is written in shell. Operating system needed to run is Unix.
+## Running [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh)
+The scripts are written in shell. Operating system needed to run is Unix.
 
 Before running the script, user will need to install csvkit and hub using the following    commands: 
 
@@ -64,7 +64,7 @@ Breakdown of the files:
 - input csv file: https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing
 - output md5checksum added csv file: https://drive.google.com/file/d/1C4xmUAC_EcXIt-v1Xq_0o13p9d5idNAe/view?usp=sharing
 - input patches folder:  https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing
-- output log file of [ `findlatestOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) : https://drive.google.com/file/d/1IVo2PsuqDugiLmu6ju0XMY8m5-ZnhS2V/view?usp=sharing
+- output log file of [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) : https://drive.google.com/file/d/1IVo2PsuqDugiLmu6ju0XMY8m5-ZnhS2V/view?usp=sharing
 - output csv file of [ `automated.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/automated.sh) : https://drive.google.com/file/d/11n3qzgTcyw-sV6YdsNkmKMmA9RwCmTL4/view?usp=sharing
 - output folders: https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
 #### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ZoEzNru27XKKZnG56-zmbaw7GtEWQJXb/view?usp=sharing
