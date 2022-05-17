@@ -82,7 +82,8 @@ It will ask user to input file name, user has to give the previously created md5
 The <newcsvfilename>.csv will have the before and after patch information.
    
  # Examples: 
-
+## Run on a small dataset: 
+ 
 Here is an example of when we run the script `latestfindOd.sh` on input file `smalldataset.csv`: 
 - User can extract the entire folder in the `home` directory and run the files as instructed above: https://drive.google.com/file/d/15RTB8nJ-7kD0zy8t-S1LTpRmqLakI9os/view?usp=sharing
 
@@ -95,6 +96,8 @@ Breakdown of the files:
 - output folders containing pytest result csv files, logs etc. : https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
 #### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ySpki-IHcHJBE2deK6s5pgUVjE4aLb5F/view?usp=sharing
 
+## Run on all 393 tests:
+ 
 If the script [`latestfindOd.sh`] is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing)
  
 These are the output folders which contain pytest result csv files, logs etc. : 
