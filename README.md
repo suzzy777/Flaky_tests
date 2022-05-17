@@ -62,7 +62,7 @@ Run the following command to run the script and save it in a logfile:
 1.	First it takes input of the input csv file which contains information about order dependent flaky tests, their polluter, cleaner, patch and creates an md5checksum for each row – which will give each OD (Order Dependent) test, polluter, cleaner, patch group some unique md5hecksum value. It creates a new csv file with the added md5sha for all the tests.  
 2.	By parsing the csv file, we get the GitHub repository links of the projects with flaky tests and clone the projects from GitHub in our local machine.
 3.	Then it installs the dependencies using requirements.txt files given in each project. The requirements.txt files are sometimes named differently such as test_requirements.txt, requirements-dev.txt etc. 
-4.	Next, it performs pytest twice, first to check if the OD test fails or passes in isolation and then to check if it passes or fails when its run after its polluter/state-setter. 
+4.	Next, it performs pytest twice, first to check if the OD test fails or passes in isolation and then to check if it passes or fails when its run after its polluter/state-setter. These pytest results are saved in individual csv files the corresponding cloned project folders. 
 5.	Then it checks if the tests are still order dependent at the latest version by checking the following conditions:
 -	If it was previously labelled as a victim and it currently passes in isolation but fails when run after a polluter, it’s order dependent and a victim.
 -	If it was previously labelled as a brittle and it currently fails in isolation but passes when run after state-setter, it’s order dependent and a brittle. 
@@ -70,6 +70,9 @@ Run the following command to run the script and save it in a logfile:
 7.	Next, if patch worked, then it will go on to fork the repository to the user’s account, create a new branch for each push and commit changes – it will prompt to compare and create pull request. 
 8.	It will also output a commit message in GitHub markdown format in the log file. User can copy and paste it in GitHub.
 9.	Lastly, the changes made by the patch is reversed at the end and the OD file goes back to the state before patching.
+
+## Details of the Script [ ` automated.sh` ]:
+1. This script uses the pytest result csv files mentioned in step 4 above (Details of the Script [ ` latesfindOD.sh` ]). It automatically fetches those results (pass-fail) and combines them in another csv file.
 
 ## Output: 
 
@@ -80,7 +83,7 @@ The <newcsvfilename>.csv will have the before and after patch information.
    
  # Examples: 
 
-Here is an example of when we run the script on `smalldataset.csv`: 
+Here is an example of when we run the script `latestfindOd.sh` on input file `smalldataset.csv`: 
 - User can extract the entire folder in the `home` directory and run the files as instructed above: https://drive.google.com/file/d/15RTB8nJ-7kD0zy8t-S1LTpRmqLakI9os/view?usp=sharing
 
 Breakdown of the files: 
@@ -92,10 +95,11 @@ Breakdown of the files:
 - output folders containing pytest result csv files, logs etc. : https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
 #### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ySpki-IHcHJBE2deK6s5pgUVjE4aLb5F/view?usp=sharing
 
-If the script is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing) 
-These are the output folders which contain pytest result csv files, logs: 
+If the script [`latestfindOd.sh`] is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing) 
+These are the output folders which contain pytest result csv files, logs etc. : 
+ 
 https://drive.google.com/drive/folders/10wgAN656RAbj8dgC10BZxQoh0VlhMReP?usp=sharing
-
-
+ 
+The output csv file of `automated.sh` for this input is: https://github.com/suzzy777/Flaky_tests/blob/master/autoall.csv
 
 [Google Sheet link]( https://docs.google.com/spreadsheets/d/1HwpPlm0sNNivqnh-S0sTxHW4u6hKiWlVLhzX-wpHHd4/edit#gid=1402605759 )
