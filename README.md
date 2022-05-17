@@ -25,11 +25,17 @@ The script might ask for the user’s GitHub credentials (username and password)
 The script will ask for an input file name first, then the name of the file it will generate with the new md5checksum column inserted. 
 
 To test on all of the 393 tests:
+
 Insert input file name: Patches.csv
+
 Insert input file with md5schecksum name: <your_given_file_name>.csv 
+
 To test on a few projects:
+
 Insert input file name: smalldataset.csv
+
 Insert input file with md5schecksum name: <your_given_file_name>.csv 
+
 
 Keep the input csv file in the same directory as the script. 
 
