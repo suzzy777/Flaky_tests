@@ -49,30 +49,29 @@ Keep the input csv file in the same directory as the script.
 
 ### Run: 
 
-Run the following command to run the script and save it in a logfile to get the commit message:
+Run the following command to run the script and save it in a logfile:
 
 `bash latestfindOD.sh |& tee <logfilename>.log`
 
 
 ## Details of the Script:
 
-1.	First it takes input of the user’s GitHub credentials in order to connect to GitHub and do activities such as git push, commit, etc.       
-2.	Then it is taking the input csv file which contains information about order dependent flaky tests, their polluter, cleaner, patch and creates an md5sha for each row – which will give each OD test, polluter, cleaner, patch some unique md5hecksum value. It creates a new csv file with the added md5sha for all the tests.  
-3.	By parsing the csv file, we get the GitHub repository links of the projects with flaky tests and clone the projects from GitHub in our local machine.
-4.	Then it installs the dependencies by installing the requirements.txt files given in each project. The requirements.txt files are sometimes named differently such as test_requirements.txt, requirements-dev.txt etc. 
-5.	Next, it performs pytest twice, first to check if the od test fails or passes in isolation and then to check if it passes or fails when its run after the polluter/state-setter. 
+1.	First it takes input of the input csv file which contains information about order dependent flaky tests, their polluter, cleaner, patch and creates an md5checksum for each row – which will give each OD (Order Dependent) test, polluter, cleaner, patch group some unique md5hecksum value. It creates a new csv file with the added md5sha for all the tests.  
+2.	By parsing the csv file, we get the GitHub repository links of the projects with flaky tests and clone the projects from GitHub in our local machine.
+3.	Then it installs the dependencies using requirements.txt files given in each project. The requirements.txt files are sometimes named differently such as test_requirements.txt, requirements-dev.txt etc. 
+4.	Next, it performs pytest twice, first to check if the OD test fails or passes in isolation and then to check if it passes or fails when its run after its polluter/state-setter. 
 6.	Then it checks if the tests are still order dependent at the latest version by checking the following conditions:
 -	If it was previously labelled as a victim and it currently passes in isolation but fails when run after a polluter, it’s order dependent and a victim.
 -	If it was previously labelled as a brittle and it currently fails in isolation but passes when run after state-setter, it’s order dependent and a brittle. 
-7.	If it is still order dependent, then it will go on to patch the od test and run the pytests again to check if the od test is still or not, if not then it means the patch worked. 
+7.	If it is still order dependent, then it will go on to patch the OD test and run the pytests again to check if the test is still OD or not, if not then it means the patch worked. 
 8.	Next, if patch worked, then it will go on to fork the repository to the user’s account, create a new branch for each push and commit changes – it will prompt to compare and create pull request. 
-9.	It will also output a commit message in the GitHub markdown format in the log file. User can copy and paste it in GitHub.
-10.	The changes made by the patch is reversed at the end and the od file goes back to the state before patching.
+9.	It will also output a commit message in GitHub markdown format in the log file. User can copy and paste it in GitHub.
+10.	Lastly, the changes made by the patch is reversed at the end and the OD file goes back to the state before patching.
 
 ##Output: 
 
-The output of the script can be seen in the log file created, we can also output the before and after patch information (pytest pass or fail) for both in isolation and running after dependent test in a simpler manner in a csv file by running the `auto.sh` file. The script has to be in the same directory as the cloned projects. Run the following command: 
-`bash auto.sh |& tee <newcsvfilename>.csv`
-It will ask to input file name, user has to give the p
-The newcsvfilename.csv will have the before and after patch information.
+The output of the script can be seen in the log file created, we can also output the before and after patch information (pytest pass or fail) for both in isolation and running after dependent test in a simpler manner in a csv file by running the `automate.sh` file. The script has to be in the same directory as the cloned projects. Run the following command: 
+`bash automate.sh |& tee <newcsvfilename>.csv`
+It will ask user to input file name, user has to give the previously created md5checksum added file name.
+The <newcsvfilename>.csv will have the before and after patch information.
 
