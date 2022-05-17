@@ -7,7 +7,7 @@ This project is to test if some previously detected python order dependent tests
 ## How to Use the Project:	
     
 ### Setup:
-## Running [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh)
+#### Running [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh)
 The scripts are written in shell. Operating system needed to run is Unix.
 
 Before running the script, user will need to install csvkit and hub using the following    commands: 
