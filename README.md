@@ -37,7 +37,7 @@ The script will ask for an input file name first, then the name of the file it w
 
 To test on all the 393 tests:
 
-Enter input file name: [ `Patches.csv` ] (https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing)
+Enter input file name: [ `Patches.csv` ](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing)
 
 Enter name of the new file that will be created with md5checksum added column: `<your_given_file_name>.csv`
 
