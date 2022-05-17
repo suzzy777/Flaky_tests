@@ -8,7 +8,6 @@ This project is to test if some previously detected python order dependent tests
 
 ### Running [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) :
 
-#### Setup: 
 
 The script is written in shell. Operating system needed to run is Unix.
 
