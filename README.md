@@ -62,7 +62,7 @@ Here is an example of when we run the script on `smalldataset.csv`:
 - output md5checksum added csv file: https://drive.google.com/file/d/1C4xmUAC_EcXIt-v1Xq_0o13p9d5idNAe/view?usp=sharing
 - input patches folder:  https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing
 - output log file of [ `findlatestODandPatch.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindODandPatch.sh) : https://drive.google.com/file/d/1IVo2PsuqDugiLmu6ju0XMY8m5-ZnhS2V/view?usp=sharing
-- output csv file of `automated.sh` : https://drive.google.com/file/d/11n3qzgTcyw-sV6YdsNkmKMmA9RwCmTL4/view?usp=sharing
+- output csv file of [ `automated.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/automated.sh) : https://drive.google.com/file/d/11n3qzgTcyw-sV6YdsNkmKMmA9RwCmTL4/view?usp=sharing
 - output folders: https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
 - demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ZoEzNru27XKKZnG56-zmbaw7GtEWQJXb/view?usp=sharing
 
