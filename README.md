@@ -68,7 +68,8 @@ Breakdown of the files:
 - output log file of [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) : https://drive.google.com/file/d/1IVo2PsuqDugiLmu6ju0XMY8m5-ZnhS2V/view?usp=sharing
 - output csv file of [ `automated.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/automated.sh) : https://drive.google.com/file/d/11n3qzgTcyw-sV6YdsNkmKMmA9RwCmTL4/view?usp=sharing
 - output folders: https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
-#### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ZoEzNru27XKKZnG56-zmbaw7GtEWQJXb/view?usp=sharing
+#### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ySpki-IHcHJBE2deK6s5pgUVjE4aLb5F/view?usp=sharing
+
 
 ## Details of the Script:
 
