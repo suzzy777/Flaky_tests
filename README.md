@@ -71,7 +71,7 @@ Run the following command to run the script and save it in a logfile:
 -	If it was previously labelled as a victim and it currently passes in isolation but fails when run after a polluter, it’s order dependent and a victim.
 -	If it was previously labelled as a brittle and it currently fails in isolation but passes when run after state-setter, it’s order dependent and a brittle. 
 6.	If it is still order dependent, then it will go on to patch the OD test and run the pytests again to check if the test is still OD or not, if not then it means the patch worked. 
-7.	Next, if patch worked, then it will go on to fork the repository to the user’s account, create a new branch for each push and commit changes – it will prompt to compare and create pull request. 
+7.	Next, if patch worked, then it will go on to fork the repository to the user’s account, create a new branch for each push and commit changes – it will prompt to compare and create pull request. It will create a new branch for each changes pushed, even on the same test file.
 8.	It will also output a commit message in GitHub markdown format in the log file. User can copy and paste it in GitHub.
 9.	Lastly, the changes made by the patch is reversed at the end and the OD file goes back to the state before patching.
 
@@ -80,7 +80,7 @@ Run the following command to run the script and save it in a logfile:
 
 ## Output: 
 
-The output of the script can be seen in the log file created, we can also output the before and after patch information (pytest pass or fail) for both in isolation and running after dependent test in a simpler manner in a csv file by running the `automate.sh` file. The script has to be in the same directory as the cloned projects. Run the following command: 
+The output of the script can be seen in the log file created. It will output the result whether the previously detected OD test is still flaky, if so, then add patch and show before and after patch result- in both isolation and running after the DT Test. Then output of pushing the changes in the forked repository. We can also output the before and after patch information (pytest pass or fail) for both in isolation and running after dependent test in a simpler manner in a csv file by running the `automate.sh` file. The script has to be in the same directory as the cloned projects. Run the following command: 
 
 `bash automate.sh |& tee <newcsvfilename>.csv`
 
@@ -102,7 +102,7 @@ Breakdown of the files:
 - output csv file of [ `automated.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/automated.sh) : https://drive.google.com/file/d/11n3qzgTcyw-sV6YdsNkmKMmA9RwCmTL4/view?usp=sharing
 - output folders containing pytest result csv files, logs etc. : https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
 #### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ySpki-IHcHJBE2deK6s5pgUVjE4aLb5F/view?usp=sharing
-
+ 
 ## Run on all 393 tests:
  
 If the script `latestfindOd.sh` is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing)
