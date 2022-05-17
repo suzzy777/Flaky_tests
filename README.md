@@ -2,22 +2,27 @@
 Fixing Python Flaky Tests 
 
 ## Project Description:
+
 This project is to test if some previously detected python order dependent tests are still order dependent at latest version, if so, then apply previously ipflakies generated patches and check if the patches work or not. Since iPFlakies is an automated tool, it is necessary to check the effectiveness of the patches it generates. Lastly, if the patches work, then automatically push the changes to the forked repository on GitHub, prompt to open a pull request and generate a commit message in markdown format for GitHub.
 
 ## How to Use the Project:	
 
 ### Running [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) :
 
-
 The script is written in shell. Operating system needed to run is Unix.
 
-Before running the script, user will need to install csvkit and hub using the following    commands: 
+- The 'ipflakies_result' folder contains the previous ipflakies generated patches which can be downloaded from here: 
+[Patches folder link]( https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing ).
+
+It has to be in the same directory as the automatically cloned projects by the script. They should all be in the home directory, github projects are by default cloned into the home directory. Since iPFlakies is an automated tool, it is necessary to check the effectiveness of the patches it generates. 
+
+- Before running the script, user will need to install csvkit and hub using the following commands: 
 
 ` sudo apt-get install csvkit`
 
  `sudo apt-get install hub`
 
-Also, to connect GitHub to local machine, to able to fork repositories, commit and push changes we need to use the following commands: 
+Also, to connect GitHub to local machine, to be able to fork repositories, commit and push changes we need to use the following commands to connect to GitHub: 
  
 `git config --global user.name "<your_github_username>"`
 
@@ -25,30 +30,29 @@ Also, to connect GitHub to local machine, to able to fork repositories, commit a
 
 User can skip this part if they do not want to fork, push or commit on GitHub.
 
-The ipflakies_result folder has to be in the same directory as the automatically cloned projects by the script. They both should be in the home directory, github projects are by default cloned into the home directory. Since iPFlakies is an automated tool, it is necessary to check the effectiveness of the patches it generates. This contains the previous ipflakies generated patches which can be downloaded from here: 
-[Patches folder link]( https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing ).
+- After a while, the script will ask for the user’s GitHub username and password at the time of executing the command ‘hub fork’, it can be skipped by pressing enter, then it will skip forking the repository and pushing the changes on GitHub. If user did not do git config at the beginning like mentioned above, but gives username and password while using hub fork, the repository will be forked, files can be added, but committing changes will not be possible without credentials. 
 
-After a while, the script will ask for the user’s GitHub username and password at the time of executing the command ‘hub fork’, it can be skipped by pressing enter, then it will skip forking the repository and pushing the changes on GitHub. If user did not do git config at the beginning like mentioned above, but gives username and password while using hub fork, the repository will be forked, files can be added, but committing changes will not be possible without credentials. 
-
-The script will ask for username again to create a remote repository with that name, but it won’t be able to create anything if GitHub credentials were not given in the previous stages. 
+- The script will ask for username again to create a remote repository with that name, but it won’t be able to create anything if GitHub credentials were not given in the previous stages. 
 
 ### Input csv file for the script: 
 
-The script will ask for an input file name first, then the name of the file it will generate with the new md5checksum column inserted. 
+The script will ask to enter an input file name first, then the name of the file it will generate with the new md5checksum column inserted. 
 
-To test on all the 393 tests:
+- To test on all the 393 tests:
 
 Enter input file name: [ `Patches.csv` ](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing)
 
+User has to keep this input file in the same directory as the script, cloned folders and patch folder(ipflakies_result).
+
 Enter name of the new file that will be created with md5checksum added column: `<your_given_file_name>.csv`
 
-To test on a few projects as it takes a long time to run 393 tests:
+- To test on a few projects as it takes a long time to run 393 tests:
 
 Enter input file name: [ `smalldataset.csv` ](https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing)
 
 Enter input file with md5schecksum name: `<your_given_file_name>.csv`
 
-Keep the input csv file in the same directory as the script. 
+User has to keep this input file in the same directory as the script, cloned folders and patch folder(ipflakies_result).
 
 ### Run: 
 
@@ -77,12 +81,15 @@ Run the following command to run the script and save it in a logfile:
 ## Output: 
 
 The output of the script can be seen in the log file created, we can also output the before and after patch information (pytest pass or fail) for both in isolation and running after dependent test in a simpler manner in a csv file by running the `automate.sh` file. The script has to be in the same directory as the cloned projects. Run the following command: 
+
 `bash automate.sh |& tee <newcsvfilename>.csv`
-It will ask user to input file name, user has to give the previously created md5checksum added file name.
+
+It will ask user to input file name, user has to give the name of previously created md5checksum column added file(`<your_given_file_name>.csv`).
 The <newcsvfilename>.csv will have the before and after patch information.
    
- # Examples: 
-## Run on a small dataset: 
+## Examples: 
+ 
+### Run on a small dataset: 
  
 Here is an example of when we run the script `latestfindOd.sh` on input file [`smalldataset.csv`](https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing): 
 - User can extract the entire [folder](https://drive.google.com/file/d/15RTB8nJ-7kD0zy8t-S1LTpRmqLakI9os/view?usp=sharing) in the `home` directory and run the files as instructed above.
