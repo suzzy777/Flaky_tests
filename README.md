@@ -62,13 +62,13 @@ Run the following command to run the script and save it in a logfile:
 2.	By parsing the csv file, we get the GitHub repository links of the projects with flaky tests and clone the projects from GitHub in our local machine.
 3.	Then it installs the dependencies using requirements.txt files given in each project. The requirements.txt files are sometimes named differently such as test_requirements.txt, requirements-dev.txt etc. 
 4.	Next, it performs pytest twice, first to check if the OD test fails or passes in isolation and then to check if it passes or fails when its run after its polluter/state-setter. 
-6.	Then it checks if the tests are still order dependent at the latest version by checking the following conditions:
+5.	Then it checks if the tests are still order dependent at the latest version by checking the following conditions:
 -	If it was previously labelled as a victim and it currently passes in isolation but fails when run after a polluter, it’s order dependent and a victim.
 -	If it was previously labelled as a brittle and it currently fails in isolation but passes when run after state-setter, it’s order dependent and a brittle. 
-7.	If it is still order dependent, then it will go on to patch the OD test and run the pytests again to check if the test is still OD or not, if not then it means the patch worked. 
-8.	Next, if patch worked, then it will go on to fork the repository to the user’s account, create a new branch for each push and commit changes – it will prompt to compare and create pull request. 
-9.	It will also output a commit message in GitHub markdown format in the log file. User can copy and paste it in GitHub.
-10.	Lastly, the changes made by the patch is reversed at the end and the OD file goes back to the state before patching.
+6.	If it is still order dependent, then it will go on to patch the OD test and run the pytests again to check if the test is still OD or not, if not then it means the patch worked. 
+7.	Next, if patch worked, then it will go on to fork the repository to the user’s account, create a new branch for each push and commit changes – it will prompt to compare and create pull request. 
+8.	It will also output a commit message in GitHub markdown format in the log file. User can copy and paste it in GitHub.
+9.	Lastly, the changes made by the patch is reversed at the end and the OD file goes back to the state before patching.
 
 ## Output: 
 
