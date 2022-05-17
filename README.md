@@ -33,6 +33,8 @@ Insert input file with md5schecksum name: <your_given_file_name>.csv
 
 Keep the input csv file in the same directory as the script. 
 
+### Run: 
+
 Run the following command to run the script and save it in a logfile to get the commit message:
 
 \`bash latestfindOD.sh | & tee <logfilename>.log\`
@@ -51,7 +53,7 @@ b.	If it was previously labelled as a brittle and it currently fails in isolatio
 8.	Next, if patch worked, then it will go on to fork the repository to the user’s account, create a new branch for each push and commit changes – it will prompt to compare and create pull request. 
 9.	It will also output a commit message in the GitHub markdown format in the log file. User can copy and paste it in GitHub.
 
-##Output: 
+## Output: 
 
 The output of the script can be seen in the log file created, we can also output the before and after patch information (pytest pass or fail) for both in isolation and running after dependent test in a simpler manner in a csv file by running the \`auto.sh\` file. The script has to be in the same directory as the cloned projects. Run the following command: 
 \`bash auto.sh |& tee <newcsvfilename>.csv\`
