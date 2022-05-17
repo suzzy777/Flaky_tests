@@ -27,11 +27,13 @@ The script will ask for an input file name first, then the name of the file it w
 To test on all of the 393 tests:
 
 Insert input file name: Patches.csv
+
 Insert input file with md5schecksum name: <your_given_file_name>.csv 
 
 To test on a few projects:
 
 Insert input file name: smalldataset.csv
+
 Insert input file with md5schecksum name: <your_given_file_name>.csv 
 
 
