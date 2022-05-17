@@ -5,10 +5,12 @@ Fixing Python Flaky Tests
 This project is to test if some previously detected python order dependent tests are still order dependent at latest version, if so, then apply previously ipflakies generated patches and check if the patches work or not. Since iPFlakies is an automated tool, it is necessary to check the effectiveness of the patches it generates. Lastly, if the patches work, then automatically push the changes to the forked repository on GitHub, prompt to open a pull request and generate a commit message in markdown format for GitHub.
 
 ## How to Use the Project:	
-    
-### Setup:
-#### Running [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) :
-The scripts are written in shell. Operating system needed to run is Unix.
+
+### Running [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) :
+
+#### Setup: 
+
+The script is written in shell. Operating system needed to run is Unix.
 
 Before running the script, user will need to install csvkit and hub using the following    commands: 
 
