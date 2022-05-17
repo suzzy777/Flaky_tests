@@ -57,7 +57,7 @@ Run the following command to run the script and save it in a logfile:
 `bash latestfindOD.sh |& tee <logfilename>.log`
 
 
-## Details of the Script:
+## Details of the Script [ ` latesfindOD.sh` ]:
 
 1.	First it takes input of the input csv file which contains information about order dependent flaky tests, their polluter, cleaner, patch and creates an md5checksum for each row – which will give each OD (Order Dependent) test, polluter, cleaner, patch group some unique md5hecksum value. It creates a new csv file with the added md5sha for all the tests.  
 2.	By parsing the csv file, we get the GitHub repository links of the projects with flaky tests and clone the projects from GitHub in our local machine.
