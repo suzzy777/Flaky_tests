@@ -25,7 +25,7 @@ Also, to connect GitHub to local machine, to able to fork repositories, commit a
 
 User can skip this part if they do not want to fork, push or commit on GitHub.
 
-The ipflakies_result folder has to be in the same directory as the automatically cloned projects by the script. They both should be in the home directory, github projects are cloned into the home directory. Since iPFlakies is an automated tool, it is necessary to check the effectiveness of the patches it generates. This contains the previous ipflakies generated patches which can be downloaded from here: 
+The ipflakies_result folder has to be in the same directory as the automatically cloned projects by the script. They both should be in the home directory, github projects are by default cloned into the home directory. Since iPFlakies is an automated tool, it is necessary to check the effectiveness of the patches it generates. This contains the previous ipflakies generated patches which can be downloaded from here: 
 [Patches folder link]( https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing ).
 
 After a while, the script will ask for the user’s GitHub username and password at the time of executing the command ‘hub fork’, it can be skipped by pressing enter, then it will skip forking the repository and pushing the changes on GitHub. If user did not do git config at the beginning like mentioned above, but gives username and password while using hub fork, the repository will be forked, files can be added, but committing changes will not be possible without credentials. 
