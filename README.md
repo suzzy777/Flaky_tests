@@ -67,9 +67,12 @@ Breakdown of the files:
 - input patches folder:  https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing
 - output log file of [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) : https://drive.google.com/file/d/1IVo2PsuqDugiLmu6ju0XMY8m5-ZnhS2V/view?usp=sharing
 - output csv file of [ `automated.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/automated.sh) : https://drive.google.com/file/d/11n3qzgTcyw-sV6YdsNkmKMmA9RwCmTL4/view?usp=sharing
-- output folders: https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
+- output folders containing pytest result csv files, logs etc. : https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
 #### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ySpki-IHcHJBE2deK6s5pgUVjE4aLb5F/view?usp=sharing
 
+If the script is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing) 
+These are the output folders which contain pytest result csv files, logs: 
+https://drive.google.com/drive/folders/10wgAN656RAbj8dgC10BZxQoh0VlhMReP?usp=sharing
 
 ## Details of the Script:
 
