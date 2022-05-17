@@ -98,7 +98,7 @@ Breakdown of the files:
 
 ## Run on all 393 tests:
  
-If the script [`latestfindOd.sh`] is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing)
+If the script `latestfindOd.sh` is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing)
  
 These are the output folders which contain pytest result csv files, logs etc. : 
  
