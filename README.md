@@ -56,23 +56,6 @@ Run the following command to run the script and save it in a logfile:
 
 `bash latestfindOD.sh |& tee <logfilename>.log`
 
-# Examples: 
-
-Here is an example of when we run the script on `smalldataset.csv`: 
-- User can extract the entire folder in the `home` directory and run the files as instructed above: https://drive.google.com/file/d/15RTB8nJ-7kD0zy8t-S1LTpRmqLakI9os/view?usp=sharing
-
-Breakdown of the files: 
-- input csv file: https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing
-- output md5checksum added csv file: https://drive.google.com/file/d/1C4xmUAC_EcXIt-v1Xq_0o13p9d5idNAe/view?usp=sharing
-- input patches folder:  https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing
-- output log file of [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) : https://drive.google.com/file/d/1IVo2PsuqDugiLmu6ju0XMY8m5-ZnhS2V/view?usp=sharing
-- output csv file of [ `automated.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/automated.sh) : https://drive.google.com/file/d/11n3qzgTcyw-sV6YdsNkmKMmA9RwCmTL4/view?usp=sharing
-- output folders containing pytest result csv files, logs etc. : https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
-#### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ySpki-IHcHJBE2deK6s5pgUVjE4aLb5F/view?usp=sharing
-
-If the script is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing) 
-These are the output folders which contain pytest result csv files, logs: 
-https://drive.google.com/drive/folders/10wgAN656RAbj8dgC10BZxQoh0VlhMReP?usp=sharing
 
 ## Details of the Script:
 
@@ -95,7 +78,24 @@ The output of the script can be seen in the log file created, we can also output
 It will ask user to input file name, user has to give the previously created md5checksum added file name.
 The <newcsvfilename>.csv will have the before and after patch information.
    
- 
+ # Examples: 
+
+Here is an example of when we run the script on `smalldataset.csv`: 
+- User can extract the entire folder in the `home` directory and run the files as instructed above: https://drive.google.com/file/d/15RTB8nJ-7kD0zy8t-S1LTpRmqLakI9os/view?usp=sharing
+
+Breakdown of the files: 
+- input csv file: https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing
+- output md5checksum added csv file: https://drive.google.com/file/d/1C4xmUAC_EcXIt-v1Xq_0o13p9d5idNAe/view?usp=sharing
+- input patches folder:  https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing
+- output log file of [ `latestfindOD.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/latestfindOD.sh) : https://drive.google.com/file/d/1IVo2PsuqDugiLmu6ju0XMY8m5-ZnhS2V/view?usp=sharing
+- output csv file of [ `automated.sh` ](https://github.com/suzzy777/Flaky_tests/blob/master/automated.sh) : https://drive.google.com/file/d/11n3qzgTcyw-sV6YdsNkmKMmA9RwCmTL4/view?usp=sharing
+- output folders containing pytest result csv files, logs etc. : https://drive.google.com/file/d/1mT4cBFiCKQXRn3AggjmgOBirb9RXR0L8/view?usp=sharing
+#### Demo video (GitHub credentials were given before): https://drive.google.com/file/d/1ySpki-IHcHJBE2deK6s5pgUVjE4aLb5F/view?usp=sharing
+
+If the script is run on all 393 projects, the input csv file is [ `Patches.csv`](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing) 
+These are the output folders which contain pytest result csv files, logs: 
+https://drive.google.com/drive/folders/10wgAN656RAbj8dgC10BZxQoh0VlhMReP?usp=sharing
+
 
 
 [Google Sheet link]( https://docs.google.com/spreadsheets/d/1HwpPlm0sNNivqnh-S0sTxHW4u6hKiWlVLhzX-wpHHd4/edit#gid=1402605759 )
