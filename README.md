@@ -1,5 +1,3 @@
-# Flaky_tests
-
 ## Project Title:
 Fixing Python Flaky Tests 
 
