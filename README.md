@@ -58,6 +58,9 @@ Run the following command to run the script and save it in a logfile:
 # Examples: 
 
 Here is an example of when we run the script on `smalldataset.csv`: 
+- User can extract the entire folder in the `home` directory and run the files as instructed above: https://drive.google.com/file/d/15RTB8nJ-7kD0zy8t-S1LTpRmqLakI9os/view?usp=sharing
+
+Breakdown of the files: 
 - input csv file: https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing
 - output md5checksum added csv file: https://drive.google.com/file/d/1C4xmUAC_EcXIt-v1Xq_0o13p9d5idNAe/view?usp=sharing
 - input patches folder:  https://drive.google.com/drive/folders/1u0TsD_PjaXZ-aqrwNKAkZR8B7LZ5bKtj?usp=sharing
