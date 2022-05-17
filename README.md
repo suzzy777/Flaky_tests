@@ -77,3 +77,5 @@ The output of the script can be seen in the log file created, we can also output
 It will ask user to input file name, user has to give the previously created md5checksum added file name.
 The <newcsvfilename>.csv will have the before and after patch information.
 
+[Google Sheet link]( https://docs.google.com/spreadsheets/d/1HwpPlm0sNNivqnh-S0sTxHW4u6hKiWlVLhzX-wpHHd4/edit#gid=1402605759 )
+ 
