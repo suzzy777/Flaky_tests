@@ -84,8 +84,8 @@ The <newcsvfilename>.csv will have the before and after patch information.
  # Examples: 
 ## Run on a small dataset: 
  
-Here is an example of when we run the script `latestfindOd.sh` on input file `smalldataset.csv`: 
-- User can extract the entire folder in the `home` directory and run the files as instructed above: https://drive.google.com/file/d/15RTB8nJ-7kD0zy8t-S1LTpRmqLakI9os/view?usp=sharing
+Here is an example of when we run the script `latestfindOd.sh` on input file [`smalldataset.csv`](https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing): 
+- User can extract the entire [folder](https://drive.google.com/file/d/15RTB8nJ-7kD0zy8t-S1LTpRmqLakI9os/view?usp=sharing) in the `home` directory and run the files as instructed above.
 
 Breakdown of the files: 
 - input csv file: https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing
