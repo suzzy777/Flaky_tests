@@ -10,10 +10,10 @@ echo "start time: $(date)"
 
 #smalldata=$1
 #smalldatamd5=$2
-echo "enter input file name:"
-read inputdata
-echo "enter name of the new file that will be created with md5checksum added column:"
-read inputdatamd5
+#echo "enter input file name:"
+#read inputdata
+#echo "enter name of the new file that will be created with md5checksum added column:"
+#read inputdatamd5
 
 awk -v OFS=',' '{
     cmd = "echo \047" $0 "\047 | md5sum"
@@ -21,16 +21,16 @@ awk -v OFS=',' '{
     close(cmd)
     sub(/ .*/,"",val)
     print $0, val
-}' "$inputdata" > "$inputdatamd5"
+}' smalldataset.csv > smalldatamd5.csv
 
 
-headr_m=$(awk -F, 'NR == 1 { print $9 }' "$inputdatamd5")
-sed -i -e '1s/'$headr_m'/md5sum/'   "$inputdatamd5"
+headr_m=$(awk -F, 'NR == 1 { print $9 }' smalldatamd5.csv)
+sed -i -e '1s/'$headr_m'/md5sum/'   smalldatamd5.csv
 
 
 CWD="$(pwd)"
 
-for f in $(cat "$inputdatamd5"); do
+for f in $(cat smalldatamd5.csv); do
 
     echo "==========="
     echo $f
@@ -170,49 +170,56 @@ for f in $(cat "$inputdatamd5"); do
         echo "===============================================================================ODAP:"
         echo $odResultAP
 	echo $(git rev-parse HEAD)
-
+	
         if [[ ("victim" == "$od_type") && ("passed" == "$odResultAP") ||  ("brittle" == "$od_type") && ("passed" == "$isolationResultAP") ]];then
-	    sevenmd5=${md5sum:0:7}
-            seven="${sevenmd5}branchb"
-	   # headbeforeadd=$(git rev-parse HEAD)
-	    #user=suzzy777
-	    #	git init
-	   
-        #git remote add $user git@github.com:/suzzy777/$project.git
-	#https://github.com/suzzy777/$project.git
-        #git remote add upstream git@github.com:suzzy777/pysllo.git
-  	    hub fork
+
+	    flag=1
+		
+	    if [[ "$flag" == 1 ]];then
+
+		    echo -e "Do you want to fork the repository and push the changes?\nIf so, type 'yes'.\n Or else, type 'no'"
+		    read command
+	    fi
+
+            if [[ "yes" == "$command" ]];then
+
+        #if [[ ("victim" == "$od_type") && ("passed" == "$odResultAP") ||  ("brittle" == "$od_type") && ("passed" == "$isolationResultAP") ]];then
+		sevenmd5=${md5sum:0:7}
+		seven="${sevenmd5}branchb"
+	  
+  		hub fork
 	#ln $od_file_name
 	    #cynergy/tests/test_class_mapping.py
 	   
-	    git add $od_file_name
-            git checkout -b "$seven"
-	    git commit -m "Fix flaky test"
-	    echo "Insert github username to create a remote repository:"
-	    read user
-	    git push -u $user "$seven"
-	    #CWD3="$(pwd)"
-	    #echo "$CWD3" 
-	   # git request-pull master ./
-	   # git checkout $headbeforeadd -- $od_file_name
-	    # cd $CWD2
-	        if [[ "victim" == "$od_type" ]]; then 
+		git add $od_file_name
+		git checkout -b "$seven"
+		git commit -m "Fix flaky test"
+		echo "Insert github username to create a remote repository:"
+		read user
+		git push -u $user "$seven"
+	   
+		if [[ "victim" == "$od_type" ]]; then
+		
 
                 #echo "===========================ENTERING LOOP:"
-		        echo -e "## What is the purpose of the change: \n - This PR is to fix a flaky test \`$od_test\`, which can fail after running the polluter : \n \`$dt\`, but passes when it is run in isolation. \n ## Reproduce the test failure: \n - Run the following command: \n  \`python -m pytest $dt $od_test \n - This command can be used with the above mentioned polluter and the order dependent test - \`$od_test\` \n ## Expected Result: \n - Test \`$od_test\` should pass when run after test \`$dt\` \n ## Actual Result: \n - Test \`$od_test\` fails when it is run after the test \`$dt\` \n ## Why the test fails: \n - The flaky test fails because the test is dependent on some state thats being changed by the polluters. \n ## Fix: \n - The changes in this pull request cleans the state polluted by the polluter and makes the flaky test pass."
+	            echo -e "## What is the purpose of the change: \n - This PR is to fix a flaky test \`$od_test\`, which can fail after running the polluter : \n \`$dt\`, but passes when it is run in isolation. \n ## Reproduce the test failure: \n - Run the following command: \n  \`python -m pytest $dt $od_test \n - This command can be used with the above mentioned polluter and the order dependent test - \`$od_test\` \n ## Expected Result: \n - Test \`$od_test\` should pass when run after test \`$dt\` \n ## Actual Result: \n - Test \`$od_test\` fails when it is run after the test \`$dt\` \n ## Why the test fails: \n - The flaky test fails because the test is dependent on some state thats being changed by the polluters. \n ## Fix: \n - The changes in this pull request cleans the state polluted by the polluter and makes the flaky test pass."
 	    		              
 
-            else if [[ "brittle" == "$od_type" ]]; then
+		elif [[ "brittle" == "$od_type" ]]; then
 		      #echo "===========================ENTERING LOOP:"
-		      echo -e "## What is the purpose of the change: \n - This PR is to fix a flaky test \`$od_test\`, which can fail while running in isolation but passes when run after a state-setter: \n \`$dt\`. \n ## Reproduce the test failure: \n - Run the following commands: \n	\`python -m pytest $od_test\` \n \`python -m pytest $dt $od_test\` \n  - These commands can be used with the above mentioned state-setter and the order dependent test  - \`$od_test\` \n ## Expected Result: \n - Test \`$od_test\` should pass when run both in isolation and after \`$dt\` \n ## Actual Result: \n - Test \`$od_test\` fails when it is run in isolation, but passes when run after \`$dt\` \n ## Why the test fails: \n - The flaky test fails because the test is dependent on some state that is not set when it is run in isolation. \n ## Fix: \n - The changes in this pull request sets the state and makes the flaky test pass."
+		    echo -e "## What is the purpose of the change: \n - This PR is to fix a flaky test \`$od_test\`, which can fail while running in isolation but passes when run after a state-setter: \n \`$dt\`. \n ## Reproduce the test failure: \n - Run the following commands: \n	\`python -m pytest $od_test\` \n \`python -m pytest $dt $od_test\` \n  - These commands can be used with the above mentioned state-setter and the order dependent test  - \`$od_test\` \n ## Expected Result: \n - Test \`$od_test\` should pass when run both in isolation and after \`$dt\` \n ## Actual Result: \n - Test \`$od_test\` fails when it is run in isolation, but passes when run after \`$dt\` \n ## Why the test fails: \n - The flaky test fails because the test is dependent on some state that is not set when it is run in isolation. \n ## Fix: \n - The changes in this pull request sets the state and makes the flaky test pass."
 		      
 		
-	        fi
-	              
+		fi
+
+            
+            fi
+	             	 
+	               
 
         fi
 		 
-    fi
+    
 	
     else
 	echo "===============================Did not need to  patch"
