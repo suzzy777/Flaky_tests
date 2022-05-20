@@ -8,8 +8,8 @@
 #input=$1
 CWD=$(pwd)
 
-read input
-for f in $(cat "$input"); do
+#read input
+for f in $(cat smalldatamd5.csv); do
 
     project=$(echo $f | cut -d, -f1)
 
@@ -18,7 +18,7 @@ for f in $(cat "$input"); do
     dir=$project
     
     md5_sha=$(echo $f | cut -d, -f9)
-    #1b1578f929265ba188ba3c55db833b6a_after_patch.csv
+    
     od_test_name=$(echo $f | cut -d, -f4)
     dt_test_name=$(echo $f | cut -d, -f6)
     
