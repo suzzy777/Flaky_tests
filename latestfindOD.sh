@@ -1,3 +1,4 @@
+#!/bin/bash
 set -x
 echo "script vers: $(git rev-parse HEAD)"
 echo "start time: $(date)"
@@ -173,13 +174,10 @@ for f in $(cat smalldatamd5.csv); do
 	
         if [[ ("victim" == "$od_type") && ("passed" == "$odResultAP") ||  ("brittle" == "$od_type") && ("passed" == "$isolationResultAP") ]];then
 
-	    flag=1
-		
-	    if [[ "$flag" == 1 ]];then
 
 		    echo -e "Do you want to fork the repository and push the changes?\nIf so, type 'yes'.\n Or else, type 'no'"
 		    read command
-	    fi
+	   
 
             if [[ "yes" == "$command" ]];then
 
@@ -253,11 +251,7 @@ for f in $(cat smalldatamd5.csv); do
 
 done
 
-
-
-
-
-
+bash automated.sh > automini.csv
 
 
 
