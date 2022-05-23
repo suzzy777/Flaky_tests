@@ -40,7 +40,7 @@ The script will ask to enter an input file name first, then the name of the file
 
 - To test on all the 393 tests:
 
-Enter input file name: [ `Patches.csv` ](https://drive.google.com/file/d/1_PhVR5Zl8aH_9Xhz-35XO78EoWLqXG4B/view?usp=sharing)
+Enter input file name: [ `Patches.csv` ](https://github.com/suzzy777/Flaky_tests/blob/master/Patches.csv)
 
 User has to keep this input file in the same directory as the script, cloned folders and patch folder(ipflakies_result).
 
@@ -48,7 +48,7 @@ Enter name of the new file that will be created with md5checksum added column: `
 
 - To test on a few projects as it takes a long time to run 393 tests:
 
-Enter input file name: [ `smalldataset.csv` ](https://drive.google.com/file/d/1-KjbTO3ROMwHHY6DyK5xG7gjPXcdi_HM/view?usp=sharing)
+Enter input file name: [ `smalldataset.csv` ](https://github.com/suzzy777/Flaky_tests/blob/master/smalldataset.csv)
 
 Enter input file with md5schecksum name: `<your_given_file_name>.csv`
 
