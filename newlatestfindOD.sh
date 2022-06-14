@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+#set -x
 #echo "script vers: $(git rev-parse HEAD)"
 #echo "start time: $(date)"
 
@@ -44,24 +44,57 @@ for polluter in $ab;do
     #cd=$(awk -v key=$polluter '$6 == key { print $7 }' Patchesmd5.csv)
     cd=$(awk -v key="$polluter" -F, '$6 == key { print $7 }' Patchesmd5.csv)
     echo "$cd"
+    if [ "$cd" == "" ];then
+	
+	cd="EMPTY"
+    fi
     #if ($(grep $polluter)
     #for cleaner in $((grep $od_test Patchesmd5.csv | grep $polluter Patchesmd5.csv) | cut -d, -f7 | sort -u); do
     for cleaner in $cd;do
 	echo "OD TEST:";echo "$od_test";echo "POLLUTER:";echo "$polluter";
 	echo "CLEANER:"
 	echo "$cleaner"
-	echo "######################################################"
-#	project=$(grep $polluter Patchesmd5.csv | grep $cleaner Patchesmd5.csv | cut -d, -f1)
-#	md5=$(awk -v key0="$od_test" && key1="$polluter" && key2="$cleaner" -F, '$4 == key0  { print $9 }' Patchesmd5.csv)
+        
+      	echo "######################################################"
+	if [ "$cleaner" == "EMPTY" ];then
+	    
+	    project=$(awk -F, '$4 == "'"$od_test"'" && $6 == "'"$polluter"'" { print $1}' Patchesmd5.csv)                             
+	    md5=$(awk -F, '$4 == "'"$od_test"'" && $6 == "'"$polluter"'" { print $9}' Patchesmd5.csv)                                 
+	   #pro
+	    patch=$(awk -F, '$4 == "'"$od_test"'" && $6 == "'"$polluter"'" { print $8}' Patchesmd5.csv)
+	else
+	    
 	#	md5=$(awk -F',' '$4 == "authnzerver/tests/test_auth_creation.py::test_create_user" && $6 == "authnzerver/tests/test_auth_login.py::test_login" && $7 == "authnzerver/tests/test_auth_deletesessions.py::test_sessions_delete_userid" { print $9 }' Patchesmd5.csv)
-        echo $od_test
-	echo $polluter
-	echo $cleaner
-#	"'"$a"'"
-	md5=$(awk -F, '$4 == "'"$od_test"'" && $6 == "'"$polluter"'" && $7 == "'"$cleaner"'" { print $9}' Patchesmd5.csv)
-	    #awk -v key="$polluter" -F, '$6 == key { print $7 }' Patchesmd5.csv && awk -v key="$polluter" -F, '$6 == key { print $ }' Patchesmd5.cs
-	     # $polluter Patchesmd5.csv | grep $cleaner Patchesmd5.csv | cut -d, -f9)
-        echo $md5
-    done
+           
+	#	"'"$a"'"
+	    project=$(awk -F, '$4 == "'"$od_test"'" && $6 == "'"$polluter"'" && $7 == "'"$cleaner"'" { print $1}' Patchesmd5.csv)         
+	    md5=$(awk -F, '$4 == "'"$od_test"'" && $6 == "'"$polluter"'" && $7 == "'"$cleaner"'" { print $9}' Patchesmd5.csv)
+	    patch=$(awk -F, '$4 == "'"$od_test"'" && $6 == "'"$polluter"'" && $7 == "'"$cleaner"'" { print $8}' Patchesmd5.csv)                          
+	#md5sum=$(echo $f | cut -d',' -f9)                                             
+	fi
 
-done   
+ 
+	#awk -v key="#$polluter" -F, '$6 == key { print $7 }' Patchesmd5.csv && awk -v key="$polluter" -F, '$6 == key { p#rint $ }' Patchesmd5.cs
+
+	echo $od_test;echo $polluter;echo $cleaner;echo $patch;echo $md5;                                                                                    # $pollu#ter Patchesmd5.csv | grep $cleaner Patchesmd5.csv | cut -d, -f9)
+ #      echo $cleaner  #patch_name=$(grep $project Patches.csv | grep $sha | grep $od_test | grep $dtecho $md5
+                                                                                   
+	                                                                               
+   #	 if [[ "Project_Name" == "$project" ]]; then continue; fi;                     
+	                                                                               
+	 #if [[ "" == "$patch_name" ]]; then continue; fi;                             
+	#patch=$(echo $patch_name | cut -d',' -f8)                                     
+	 #BT-Tracker/ipflakies_result/d94526b0/patch/test_event_patch_91e72946.patch   
+	 #patch_path=$(echo $patch | cut -d'/' -f2-3)                                  
+
+#	patch_final=$(echo $patch | rev | cut -d'/' -f1 | rev)                        
+
+	#test_event_patch_91e72946.patch                                              
+	                                                                               
+	                                                                               
+	#echo $patch_name                                                              
+	    #echo $patch                                                                   
+	# echo "Patch:"                                                                
+	 # echo $patch_final
+    done
+done    
