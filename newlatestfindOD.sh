@@ -157,7 +157,7 @@ for polluter in $ab;do
 	if [[ ("victim" == "$od_type") && ("passed" == "$isolationResultBP") && ("failed" == "$odResultBP") || ("brittle" == "$od_type") && ("failed" == "$isolationResultBP") && ("passed" == "$odResultBP") ]];then
 	    echo "=========================================================================================================PATCHING"
 
-	    cp -r /home/$USER/mnt/batch/tasks/workitems/DRR_delay-tmp_r0_6M10d9h55m28s/job-1/Flaky_tests/ipflakies_result/$patch /home/$USER/mnt/batch/tasks/workitems/DRR_delay-tmp_r0_6M10d9h55m28s/job-1/$project/$file_loc/
+	    cp -r /mnt/batch/tasks/workitems/DRR_delay-tmp_r0_6M10d9h55m28s/job-1/Flaky_tests/ipflakies_result/$patch /mnt/batch/tasks/workitems/DRR_delay-tmp_r0_6M10d9h55m28s/job-1/Flaky_tests/$project/$file_loc/
 	    
 	    CWD2="$(pwd)"
 	    
