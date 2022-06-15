@@ -283,7 +283,7 @@ else
     for s in $list;do
 	#od_type=$(cat $s | jq -r '.type')
 	#od_test=
-	temp=$(grep -Po '"tests/test_loading.py::test_loading":.*?[^\\]",' flakies.json)
+	temp=$(grep -Po '"$od_test":.*?[^\\]",' flakies.json)
 	if [ grep -q "$od_test" $temp ];then
 	    echo "yes"
 	  
