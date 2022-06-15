@@ -309,7 +309,6 @@ else
     #dependent_test_name=$(echo $dt | rev | cut -d':' -f1 | rev)
     #od_type=$(cat $s | jq -r '.type')
 	#od_test=
-<<<<<<< HEAD
 	#cd ipflakies_results
      temp=$(grep -Po $od_test'":.*?[^\\]",' ./$project/ipflakies_result/flakies.json)
      echo $temp
@@ -347,27 +346,6 @@ else
      fi
 
 #done
-=======
-	temp=$(grep -Po '"$od_test":.*?[^\\]",' flakies.json)
-	if [ grep -q "$od_test" $temp ];then
-	    echo "yes"
-	  
-	    python3 -m ipflakies -t $od_test        
-
-	    list2=$(find . -name '*.patch')
-	    for p in $list2;do
-		cp -r $p ./$file_loc
-		#patch_n=$(find . -name $od_test"_patch_*"
-		patch_n=$(find . -name '$od_test_patch_*.patch')  
-		patch $od_file $patch_n
-            done
-	else
-
-	    echo "no"
-        fi
-
-    done
->>>>>>> 23dcf59a7661ec9aa83a7568c5b1833eddea9c9f
 fi    
 	    
 	    
