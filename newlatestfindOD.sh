@@ -297,9 +297,12 @@ else
 		patch $od_file $patch_n
             done
 	else
+
 	    echo "no"
-     done
-     
+        fi
+
+    done
+fi    
 	    
 	    
 	    
