@@ -277,31 +277,75 @@ if [ grep -q $od_test Patchesmd5.csv ];then
 	done
     done  
 else
+    
+    project=$(echo $url | rev | cut -d'/' -f1 | rev)
+    echo "$project"
+    echo "$(pwd)"
+    #cd $project
     pip install ipflakies
-    python3 -m ipflakies -i 30 --seed=202114
-    list=$(find . -name 'minimized.json')
-    for s in $list;do
-	#od_type=$(cat $s | jq -r '.type')
+    cd $project
+    #python3 -m ipflakies -i 30 --seed=202114
+    cd ..
+    ## list=$(find $project -name "minimized.json")
+   ## for s in $list;do
+
+    file_loc=$(echo $od_test | rev | cut -d'/' -f2- | rev)
+
+    od_file_name=$(echo $od_test | cut -d':' -f1)                 
+    #od_file_name= Tracker/tests/test_event.py                    
+    # yp.tneve_tset/stset/..                                      
+    od_file=$(echo $od_file_name | rev | cut -d'/' -f1 | rev)     
+    #yp.tneve_tset                                                
+    #test_event.py
+    od_file_name=$(echo $od_file | rev | cut -d'.' -f2- | rev)
+    # Tracker/tests/test_event.py::TestEvent::test_object         
+   # file_loc=$(echo $od_file_name | rev | cut -d'/' -f2- | rev)   
+    #Tracker/tests                                                
+                                                                  
+    #git checkout -- $od_file_name                                
+                                                                  
+    #naming the files                                             
+    od_test_name=$(echo $od_test | rev | cut -d':' -f1 | rev)     
+    #dependent_test_name=$(echo $dt | rev | cut -d':' -f1 | rev)
+    #od_type=$(cat $s | jq -r '.type')
 	#od_test=
-	temp=$(grep -Po '"tests/test_loading.py::test_loading":.*?[^\\]",' flakies.json)
-	if [ grep -q "$od_test" $temp ];then
-	    echo "yes"
-	  
-	    python3 -m ipflakies -t $od_test        
+	#cd ipflakies_results
+     temp=$(grep -Po $od_test'":.*?[^\\]",' ./$project/ipflakies_result/flakies.json)
+     echo $temp
+     if grep -q "$od_test" <<< "$temp";then
+	    
+	 echo "yes"
+	 CWD8="$(pwd)"
+	 cd $project
+	 python3 -m ipflakies -t $od_test
+	 #> ablogtest.log
+         cd "$CWD8"
 
-	    list2=$(find . -name '*.patch')
-	    for p in $list2;do
-		cp -r $p ./$file_loc
-		#patch_n=$(find . -name $od_test"_patch_*"
-		patch_n=$(find . -name '$od_test_patch_*.patch')  
-		patch $od_file $patch_n
-            done
-	else
+	 #list2=$(find -name '*.patch')
+	 ###cd "$CWD8"
+	 #for p in $list2;do
+	  #   cp -r ./$project/$p ./$project/$file_loc
+	     #patch_n=$(find . -name $od_test"_patch_*"
+	 patch_n=$(find $project/ipflakies_result -name $od_file_name'_patch_*.patch')  
+         if [[ $patch_n == "" ]];then
+		 continue;
+   	 else
+	     for gg in $patch_n;do
+		 CWD9=$(pwd)
+		 cp -r ./$gg ./$project/$file_loc
+		 cd ./$project/$file_loc
+		 patch_name=$(echo $gg | rev | cut -d'/' -f1 | rev)
+		 patch -N $od_file $patch_name
+		 cd "$CWD9"
+             done
+	 fi
+	 #cd "$CWD8"
+     else
 
-	    echo "no"
-        fi
+	 echo "Not Flaky"
+     fi
 
-    done
+#done
 fi    
 	    
 	    
